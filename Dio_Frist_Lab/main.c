@@ -5,23 +5,24 @@
  * Author : Mohamed Salem
  */ 
 
-#include "Atmega32_Register.h"
-#include "Bit_Math.h"
+
+
+#define F_CPU 16000000
+#include <util/delay.h>
+#include "LED.h"
+#include "Button.h"
+
 
 
 int main(void)
 {
-   
-   SET_BIT(DDRC,2);
-   SET_BIT(PORTC,2);
-   SET_BIT(DDRC,7);
-   SET_BIT(PORTC,7);
-   SET_BIT(DDRD,3);
-   SET_BIT(PORTD,3);
-   
-   
-    while (1) 
-    {
-    }
+	LED0_Init();
+	LED0_ON();
+	
+	
+	while(1)
+	{
+		
+	}
 }
 
