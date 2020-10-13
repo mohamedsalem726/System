@@ -3,7 +3,7 @@ Archive member included to satisfy reference by file (symbol)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                              main.o (__do_copy_data)
+                              KeyPad.o (__do_copy_data)
 
 Discarded input sections
 
@@ -18,11 +18,16 @@ Discarded input sections
                 0x00000000       0x20 DIO.o
  .text.DIO_GetPortVal
                 0x00000000       0x22 DIO.o
- .text.DIO_GetPinVal
-                0x00000000       0x30 DIO.o
+ .text          0x00000000        0x0 KeyPad.o
+ .data          0x00000000        0x0 KeyPad.o
+ .bss           0x00000000        0x0 KeyPad.o
  .text          0x00000000        0x0 LCD.o
  .data          0x00000000        0x0 LCD.o
  .bss           0x00000000        0x0 LCD.o
+ .text.LCD_WriteString
+                0x00000000       0x26 LCD.o
+ .text.LCD_Goto
+                0x00000000       0x28 LCD.o
  .text.LCD_Clear
                 0x00000000        0x6 LCD.o
  .text          0x00000000        0x0 main.o
@@ -77,9 +82,11 @@ Linker script and memory map
 
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32/avr5/crtatmega32.o
 LOAD DIO.o
+LOAD KeyPad.o
 LOAD LCD.o
 LOAD main.o
 START GROUP
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
 END GROUP
 START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a
@@ -187,7 +194,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x430
+.text           0x00000000      0x586
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -273,29 +280,35 @@ END GROUP
  .text.DIO_SetPinVal
                 0x0000014c       0xca DIO.o
                 0x0000014c                DIO_SetPinVal
+ .text.DIO_GetPinVal
+                0x00000216       0x30 DIO.o
+                0x00000216                DIO_GetPinVal
+ .text.DIO_SetPullUp
+                0x00000246       0x60 DIO.o
+                0x00000246                DIO_SetPullUp
+ .text.KeyPad_Init
+                0x000002a6       0x98 KeyPad.o
+                0x000002a6                KeyPad_Init
+ .text.KeyPad_GetValue
+                0x0000033e       0x8c KeyPad.o
+                0x0000033e                KeyPad_GetValue
  .text.LCD_WriteCommand
-                0x00000216       0x90 LCD.o
-                0x00000216                LCD_WriteCommand
+                0x000003ca       0x90 LCD.o
+                0x000003ca                LCD_WriteCommand
  .text.LCD_Init
-                0x000002a6       0x82 LCD.o
-                0x000002a6                LCD_Init
+                0x0000045a       0x82 LCD.o
+                0x0000045a                LCD_Init
  .text.LCD_WriteChar
-                0x00000328       0x90 LCD.o
-                0x00000328                LCD_WriteChar
- .text.LCD_WriteString
-                0x000003b8       0x26 LCD.o
-                0x000003b8                LCD_WriteString
- .text.LCD_Goto
-                0x000003de       0x28 LCD.o
-                0x000003de                LCD_Goto
+                0x000004dc       0x90 LCD.o
+                0x000004dc                LCD_WriteChar
  .text.startup.main
-                0x00000406       0x26 main.o
-                0x00000406                main
-                0x0000042c                . = ALIGN (0x2)
+                0x0000056c       0x16 main.o
+                0x0000056c                main
+                0x00000582                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000042c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x0000042c                _exit
-                0x0000042c                exit
+ .fini9         0x00000582        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000582                _exit
+                0x00000582                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -314,39 +327,39 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000042c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000582        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000430                _etext = .
+                0x00000586                _etext = .
 
-.data           0x00800060       0x18 load address 0x00000430
+.data           0x00800060       0x10 load address 0x00000586
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
+ .data.KeyPad_Values
+                0x00800060       0x10 KeyPad.o
+                0x00800060                KeyPad_Values
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
- .rodata.str1.1
-                0x00800060       0x17 main.o
  *(.gnu.linkonce.r*)
-                0x00800078                . = ALIGN (0x2)
- *fill*         0x00800077        0x1 
-                0x00800078                _edata = .
-                0x00800078                PROVIDE (__data_end, .)
+                0x00800070                . = ALIGN (0x2)
+                0x00800070                _edata = .
+                0x00800070                PROVIDE (__data_end, .)
 
-.bss            0x00800078        0x0
+.bss            0x00800070        0x0
                 [!provide]                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
                 [!provide]                PROVIDE (__bss_end, .)
-                0x00000430                __data_load_start = LOADADDR (.data)
-                0x00000448                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000586                __data_load_start = LOADADDR (.data)
+                0x00000596                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800078        0x0
+.noinit         0x00800070        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800078                _end = .
+                0x00800070                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -390,6 +403,7 @@ END GROUP
  *(.comment)
  .comment       0x00000000       0x30 DIO.o
                                  0x31 (size before relaxing)
+ .comment       0x00000030       0x31 KeyPad.o
  .comment       0x00000030       0x31 LCD.o
  .comment       0x00000030       0x31 main.o
 
@@ -464,5 +478,5 @@ END GROUP
 
 .debug_macro
  *(.debug_macro)
-OUTPUT(LCD_Project.elf elf32-avr)
+OUTPUT(KeyPad.elf elf32-avr)
 LOAD linker stubs

@@ -12,11 +12,10 @@ int main(void)
 {
    
    LCD_Init();
-   
-   LCD_Goto(0,6);
-   LCD_WriteString("MOHAMED");
-   LCD_Goto(1,6);
-   LCD_WriteString("SALEM");
+   LCD_WriteString("FLORO ");
+   LCD_WriteString("3AYEZ ");
+   LCD_Goto(1,0);
+   LCD_WriteString("YTGAWEZ ");
    
     while (1) 
     {

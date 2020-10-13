@@ -5,19 +5,19 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         00000430  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000000e  00800060  00000430  000004a4  2**0
+  1 .data         00000018  00800060  00000430  000004a4  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  000004b2  2**0
+  2 .comment      00000030  00000000  00000000  000004bc  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000004e4  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000004ec  2**2
                   CONTENTS, READONLY
-  4 .debug_info   000004e6  00000000  00000000  00000520  2**0
+  4 .debug_info   000004e6  00000000  00000000  00000528  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 000004a3  00000000  00000000  00000a06  2**0
+  5 .debug_abbrev 000004a3  00000000  00000000  00000a0e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   00000115  00000000  00000000  00000ea9  2**0
+  6 .debug_line   00000115  00000000  00000000  00000eb1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    00000196  00000000  00000000  00000fbe  2**0
+  7 .debug_str    00000196  00000000  00000000  00000fc6  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -62,7 +62,7 @@ Disassembly of section .text:
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
   6e:	0d 92       	st	X+, r0
-  70:	ae 36       	cpi	r26, 0x6E	; 110
+  70:	a8 37       	cpi	r26, 0x78	; 120
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
   76:	0e 94 03 02 	call	0x406	; 0x406 <main>
@@ -507,16 +507,16 @@ Disassembly of section .text:
 
 00000406 <main>:
  406:	0e 94 53 01 	call	0x2a6	; 0x2a6 <LCD_Init>
- 40a:	66 e0       	ldi	r22, 0x06	; 6
- 40c:	80 e0       	ldi	r24, 0x00	; 0
- 40e:	0e 94 ef 01 	call	0x3de	; 0x3de <LCD_Goto>
- 412:	80 e6       	ldi	r24, 0x60	; 96
+ 40a:	80 e6       	ldi	r24, 0x60	; 96
+ 40c:	90 e0       	ldi	r25, 0x00	; 0
+ 40e:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <LCD_WriteString>
+ 412:	87 e6       	ldi	r24, 0x67	; 103
  414:	90 e0       	ldi	r25, 0x00	; 0
  416:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <LCD_WriteString>
- 41a:	66 e0       	ldi	r22, 0x06	; 6
+ 41a:	60 e0       	ldi	r22, 0x00	; 0
  41c:	81 e0       	ldi	r24, 0x01	; 1
  41e:	0e 94 ef 01 	call	0x3de	; 0x3de <LCD_Goto>
- 422:	88 e6       	ldi	r24, 0x68	; 104
+ 422:	8e e6       	ldi	r24, 0x6E	; 110
  424:	90 e0       	ldi	r25, 0x00	; 0
  426:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <LCD_WriteString>
  42a:	ff cf       	rjmp	.-2      	; 0x42a <main+0x24>
