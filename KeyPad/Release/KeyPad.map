@@ -335,12 +335,12 @@ END GROUP
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
- .data.KeyPad_Values
-                0x00800060       0x10 KeyPad.o
-                0x00800060                KeyPad_Values
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
+ .rodata.KeyPad_Values
+                0x00800060       0x10 KeyPad.o
+                0x00800060                KeyPad_Values
  *(.gnu.linkonce.r*)
                 0x00800070                . = ALIGN (0x2)
                 0x00800070                _edata = .

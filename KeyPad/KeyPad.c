@@ -1,10 +1,9 @@
 /*
  * KeyPad.c
  *
- * Created: 10/13/2020 3:52:51 PM
- *  Author: Mohamed Salem
+ * Created: 10/10/2020 10:30:54 ?
+ *  Author: Ali
  */ 
-
 
 
 #include  "KeyPad.h"
@@ -20,14 +19,18 @@
 
 
 
-uint8  KeyPad_Values[4][4] = {  {'7','8','9','/'},
-	                           {'4','5','6','*'},
-							   {'1','2','3','-'},
-							   {'c','0','=','+'} };   
-								   
-							   
+
+const uint8 KeyPad_Values[4][4] = {  {'7','8','9','/'},
+                                    {'4','5','6','*'},
+                                    {'1','2','3','-'},
+                                    {'c','0','=','+'} };	
+								
+
+
+
 void KeyPad_Init(void)
 {
+	
 	DIO_SetPinDir( KEYPAD_PORT , KEYPAD_COLOUM0 , DIO_PIN_OUTPUT);
 	DIO_SetPinDir( KEYPAD_PORT , KEYPAD_COLOUM1 , DIO_PIN_OUTPUT);
 	DIO_SetPinDir( KEYPAD_PORT , KEYPAD_COLOUM2 , DIO_PIN_OUTPUT);
@@ -38,14 +41,14 @@ void KeyPad_Init(void)
 	DIO_SetPinDir( KEYPAD_PORT , KEYPAD_ROW2 , DIO_PIN_INPUT);
 	DIO_SetPinDir( KEYPAD_PORT , KEYPAD_ROW3 , DIO_PIN_INPUT);
 	
-	DIO_SetPullUp(KEYPAD_PORT , KEYPAD_ROW0);
-	DIO_SetPullUp(KEYPAD_PORT , KEYPAD_ROW1);
-	DIO_SetPullUp(KEYPAD_PORT , KEYPAD_ROW2);
-	DIO_SetPullUp(KEYPAD_PORT , KEYPAD_ROW3);
+	DIO_SetPullUp( KEYPAD_PORT , KEYPAD_ROW0);
+	DIO_SetPullUp( KEYPAD_PORT , KEYPAD_ROW1);
+	DIO_SetPullUp( KEYPAD_PORT , KEYPAD_ROW2);
+	DIO_SetPullUp( KEYPAD_PORT , KEYPAD_ROW3);
 	
 	DIO_SetPinVal(KEYPAD_PORT , KEYPAD_COLOUM0 , DIO_PIN_HIGH);
 	DIO_SetPinVal(KEYPAD_PORT , KEYPAD_COLOUM1 , DIO_PIN_HIGH);
-	DIO_SetPinVal(KEYPAD_PORT , KEYPAD_COLOUM2 , DIO_PIN_HIGH);
+    DIO_SetPinVal(KEYPAD_PORT , KEYPAD_COLOUM2 , DIO_PIN_HIGH);
 	DIO_SetPinVal(KEYPAD_PORT , KEYPAD_COLOUM3 , DIO_PIN_HIGH);
 	
 }
@@ -60,27 +63,28 @@ uint8 KeyPad_GetValue(void)
 	
 	for(Col_Loc = COL_INIT ; Col_Loc <= COL_FINAL ; Col_Loc++)
 	{
+		
 		DIO_SetPinVal(KEYPAD_PORT , Col_Loc , DIO_PIN_LOW);
 		
 		for(Row_Loc = ROW_INIT ; Row_Loc <= ROW_FINAL ; Row_Loc++)
 		{
 			
-		 	 Temp =  DIO_GetPinVal(KEYPAD_PORT , Row_Loc);
-			 
-			 if(!Temp)
-			 {
-				Value = KeyPad_Values[Row_Loc - ROW_INIT][Col_Loc - COL_INIT]; 
+			Temp = DIO_GetPinVal(KEYPAD_PORT , Row_Loc);
+			
+			if(!Temp)
+			{
+				Value =  KeyPad_Values[Row_Loc - ROW_INIT][Col_Loc - COL_INIT];
 				
 				while(!Temp)
 				{
-				   Temp =  DIO_GetPinVal(KEYPAD_PORT , Row_Loc);
+					Temp = DIO_GetPinVal(KEYPAD_PORT , Row_Loc);
 				}
 				_delay_ms(10);
-			 }
-			  
+			}
+			
 		}
 		
-		DIO_SetPinVal(KEYPAD_PORT , Col_Loc , DIO_PIN_HIGH);
+	   DIO_SetPinVal(KEYPAD_PORT , Col_Loc , DIO_PIN_HIGH);
 		
 	}
 	

@@ -57,6 +57,6 @@ void DIO_SetPinVal(uint8 Port ,uint8 Pin ,uint8 Val);
 uint8 DIO_GetPortVal(uint8 Port);
 uint8 DIO_GetPinVal(uint8 Port ,uint8 Pin);
 
-void DIO_SetPullUp(uint8 port , uint8 pin);
+void DIO_SetPullUp(uint8 port ,uint8 pin);
 
 #endif /* DIO_H_ */
