@@ -1,0 +1,22 @@
+/*
+ * External_Interrupt_Cfg.h
+ *
+ * Created: 10/15/2020 4:50:40 PM
+ *  Author: Mohamed Salem
+ */ 
+
+
+#ifndef EXTERNAL_INTERRUPT_CFG_H_
+#define EXTERNAL_INTERRUPT_CFG_H_
+
+#define   GLOBAL_INTERRUPT_STATUS    GLOBAL_INT_ENABLE
+
+#define   EXTERNAL_INT0_TRIGER       TNT_RISING_EDGE_TRIGER
+
+#define   EXTERNAL_INT1_TRIGER       TNT_RISING_EDGE_TRIGER
+
+#define   EXTERNAL_INT2_TRIGER       TNT_RISING_EDGE_TRIGER
+
+
+
+#endif /* EXTERNAL_INTERRUPT_CFG_H_ */
