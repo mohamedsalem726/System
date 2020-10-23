@@ -49,7 +49,6 @@
 #define    ADC_ADJUST     (*(volatile uint16*)(0x24))
 #define    SFIOR          (*(volatile uint8*)(0x50)) 
 
- 
 
 /**************************************************  Timer0  ********************************************************/
  
@@ -58,5 +57,14 @@
 #define    OCR0           (*(volatile uint8*)(0x5C))
 #define    TIMSK          (*(volatile uint8*)(0x59))
  
+/**************************************************  Timer1  ********************************************************/
+
+#define    TCCR1A         (*(volatile uint8*)(0x4F))
+#define    TCCR1B         (*(volatile uint8*)(0x4E))
+#define    OCR1           (*(volatile uint16*)(0x4A))
+
+
+
+
 
 #endif /* ATMWGA32_REGISTERS_H_ */

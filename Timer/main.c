@@ -5,9 +5,10 @@
  * Author : Mohamed Salem
  */ 
 
-#include "Timer.h"
-#include "LED.h"
+//#include "Timer.h"
+//#include "LED.h"
 #include <avr/interrupt.h>
+#include "DC_Motor.h"
 
 extern uint32 Number_OverFlows ;
 extern uint32 CounterRegisterInit_Value ;
@@ -15,13 +16,18 @@ extern uint32 CounterRegisterInit_Value ;
 
 int main(void)
 {
-    
+   /* 
 	LED0_Init();
 	
-	Timer0_Init();
-	Timer0_SetDelay(500);
-	Timer0_Start();
+	Timer1_Init();
+	Timer1_SetDelay(1000);
+	Timer1_Start();*/
 	
+	DC_Motor_Init();
+	
+	DC_Motor_SeetSpeed(10);
+	
+	DC_Motor_Start();
 	
     while (1) 
     {
@@ -45,4 +51,17 @@ ISR(TIMER0_OVF_vect)
 	}
 
 	
+}
+
+ISR(TIMER1_COMPA_vect)
+{
+	static uint32 counter = 0;
+	
+	counter++;
+	
+	if(counter == 1)
+	{
+		LED0_Toggle();
+		counter = 0;
+	}
 }

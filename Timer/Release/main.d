@@ -1,5 +1,4 @@
-main.d main.o: .././main.c .././Timer.h .././Atmega32_Registers.h \
- .././STD.h .././Bit_Math.h .././LED.h .././DIO.h \
+main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -11,19 +10,9 @@ main.d main.o: .././main.c .././Timer.h .././Atmega32_Registers.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h
-
-.././Timer.h:
-
-.././Atmega32_Registers.h:
-
-.././STD.h:
-
-.././Bit_Math.h:
-
-.././LED.h:
-
-.././DIO.h:
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
+ .././DC_Motor.h .././Timer.h .././Time_Cfg.h .././Atmega32_Registers.h \
+ .././STD.h .././Bit_Math.h .././DIO.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
@@ -48,3 +37,17 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
+
+.././DC_Motor.h:
+
+.././Timer.h:
+
+.././Time_Cfg.h:
+
+.././Atmega32_Registers.h:
+
+.././STD.h:
+
+.././Bit_Math.h:
+
+.././DIO.h:
