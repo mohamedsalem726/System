@@ -3,8 +3,8 @@
 /* Date      : 12 FEB 2021                           */ 
 /* Version   : V01                                   */
 /*****************************************************/
-#ifndef GPIO_PRIVAT_H
-#define GPIO_PRIVAT_H
+#ifndef _GPIO_PRIVAT_H
+#define _GPIO_PRIVAT_H
 
 
 typedef struct{
