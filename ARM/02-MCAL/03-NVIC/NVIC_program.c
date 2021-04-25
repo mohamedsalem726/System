@@ -13,7 +13,8 @@
 #include "NVIC_config.h""
 
 
-void MNVIC_voidEnableInterrupt(u8 Copy_u8IntNumber) {
+void MNVIC_voidEnableInterrupt(u8 Copy_u8IntNumber)
+{
 	if (Copy_u8IntNumber <= 31) {
 		NVIC_ISER0 = (0x01 << Copy_u8IntNumber);
 	} else if (Copy_u8IntNumber <= 59) {
@@ -23,7 +24,8 @@ void MNVIC_voidEnableInterrupt(u8 Copy_u8IntNumber) {
 	}
 } 
 
-void MNVIC_voidDisableInterrupt(u8 Copy_u8IntNumber) {
+void MNVIC_voidDisableInterrupt(u8 Copy_u8IntNumber)
+{
 	if (Copy_u8IntNumber <= 31) {
 		NVIC_ICER0 = (0x01 << Copy_u8IntNumber);
 	} else if (Cpy_u8IntNumber <= 59) {
@@ -33,7 +35,8 @@ void MNVIC_voidDisableInterrupt(u8 Copy_u8IntNumber) {
 	}
 }
 
-void MNVIC_voidSetPendingInterrupt(u8 Copy_u8IntNumber) {
+void MNVIC_voidSetPendingInterrupt(u8 Copy_u8IntNumber)
+{
 	if (Copy_u8IntNumber <= 31) {
 		NVIC_ISPR0 = (0x01 << Copy_u8IntNumber);
 	} else if (Cpy_u8IntNumber <= 59) {
@@ -43,7 +46,8 @@ void MNVIC_voidSetPendingInterrupt(u8 Copy_u8IntNumber) {
 	}
 }
 
-void MNVIC_voidClearPendingInterrupt(u8 Copy_u8IntNumber) {
+void MNVIC_voidClearPendingInterrupt(u8 Copy_u8IntNumber)
+{
 	if (Copy_u8IntNumber <= 31) {
 		NVIC_ICPR0 = (0x01 << Copy_u8IntNumber);
 	} else if (Cpy_u8IntNumber <= 59) {
@@ -53,7 +57,8 @@ void MNVIC_voidClearPendingInterrupt(u8 Copy_u8IntNumber) {
 	}
 }
 
-u8 MNVIC_u8ActiveInterrupt(u8 Copy_u8IntNumber) {
+u8 MNVIC_u8ActiveInterrupt(u8 Copy_u8IntNumber) 
+{
 	u8 Loc_u8InterruptState = 0;
 	if (Copy_u8IntNumber <= 31) {
 		Loc_u8InterruptState = GET_BIT(NVIC_IABR0, Copy_u8IntNumber);
@@ -65,7 +70,8 @@ u8 MNVIC_u8ActiveInterrupt(u8 Copy_u8IntNumber) {
 	return Loc_u8InterruptState;
 }
 
-void MNVIC_voidSetPriorityValue(u8 Copy_u8IntNumber, u8 Copy_u8GrpPrVal, u8 Copy_u8SubPrVal){
+void MNVIC_voidSetPriorityValue(u8 Copy_u8IntNumber, u8 Copy_u8GrpPrVal, u8 Copy_u8SubPrVal)
+{
 	if(Cpy_u8IntNumber < 60)
 	{
 		u8* IprReg = NVIC_IPR;
@@ -99,7 +105,8 @@ void MNVIC_voidSetPriorityValue(u8 Copy_u8IntNumber, u8 Copy_u8GrpPrVal, u8 Copy
 	}
 }
 
-void MNVIC_voidEXTIEnControl(u8 Copy_u8Line, u8 Copy_u8EnorDis){
+void MNVIC_voidEXTIEnControl(u8 Copy_u8Line, u8 Copy_u8EnorDis)
+{
 	
 	switch(Copy_u8EnorDis)
 	{
