@@ -10,7 +10,7 @@
 #include "SCB_interface.h"
 #include "NVIC_interface.h"
 #include "NVIC_private.h"
-#include "NVIC_config.h""
+#include "NVIC_config.h"
 
 
 void MNVIC_voidEnableInterrupt(u8 Copy_u8IntNumber)
